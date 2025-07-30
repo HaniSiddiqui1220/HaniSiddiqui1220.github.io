@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Anniversary</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <iframe
+      id="loveBanner"
+      srcdoc="
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(90deg, #ffe0f0, #ffcce6);
+      font-family: 'Segoe UI', sans-serif;
+      color: #d63384;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+  </style>
+  <div>💌 To You, Forever 💞</div>
+"
+      scrolling="no"
+    ></iframe>
+
+    <header>
+      <h1>Happy Anniversary</h1>
+      <p>Celebrating Love Since 2022 💞</p>
+      <div id="countdownContainer">
+        <h2>⏱ Time Since Our Journey Began</h2>
+        <div id="countdown"></div>
+      </div>
+    </header>
+
+    <section class="love-story-book">
+      <h2 class="love-heading">💖 Our Journey of Love 💖</h2>
+      <div id="lovePages" class="love-pages">
+        <!-- Each page -->
+        <div class="love-page">
+          <h3>💞 How It All Began</h3>
+          <p>
+            A spark turned into conversations, laughter into late-night talks...
+            that day we met was the start of something magical.
+          </p>
+          <img src="bd14.gif" alt="" / height="200" width="220">
+        </div>
+        <div class="love-page">
+          <h3>🌸 The First 'I Like You'</h3>
+          <p>
+            Nervous words, shy smiles, and butterflies we couldn’t hide. That
+            moment still feels like yesterday – raw and real.
+          </p>
+          <img src="bd10.gif" alt="" / height="200" width="220">
+        </div>
+        <div class="love-page">
+          <h3>🎡 Our Adventures Together</h3>
+          <p>
+            Every outing and spontaneous moment wrote memories in our hearts.
+            Whether dates or  calls – every second mattered.
+          </p>
+          <img src="bd3.gif" alt="" / height="200" width="220">
+        </div>
+        <div class="love-page">
+          <h3>💬 Late-Night Talks & Soft Confessions</h3>
+          <p>
+            Those 2 a.m. chats when only we existed. We found comfort and dreams
+            in each other’s words.
+          </p>
+          <img src="bd11.gif" alt="" / height="200" width="220">
+        </div>
+        <div class="love-page">
+          <h3>💖 Through Ups & Downs</h3>
+          <p>
+            Not everything was perfect. But through every storm, we held on. We
+            stayed. We grew.
+          </p>
+          <img src="bd1.gif" alt="" height="200" width="220" />
+        </div>
+        <div class="love-page">
+          <h3>🥰 The Little Things</h3>
+          <p>
+            The jokes, long and loveable texts, “voice” notes full of love – they weren’t
+            little. They were everything.
+          </p>
+          <img src="bd30.gif" alt="" height="200" width="220" />
+        </div>
+        <div class="love-page">
+          <h3>🎉 Celebrating Us – 3 Years of Love</h3>
+          <p>
+            Three years of memories, smiles, and staying by each other’s side.
+            Still choosing each other – every day.
+          </p>
+          <img src="bd16.png" alt="" height="200" width="220" />
+        </div>
+        <div class="love-page">
+          <h3>💫 Our Beautiful Now</h3>
+          <p>
+            No rush. No pressure. Just us – in a connection that keeps getting
+            deeper and more beautiful.
+          </p>
+          <img src="bd21.gif" alt="" height="200" width="220"/>
+        </div>
+        <div class="love-page">
+          <h3>🌹 To Be Continued...</h3>
+          <p>
+            Our story is just getting started. More laughs, more love, more
+            memories to come.
+          </p>
+          <img src="bd19.gif" alt="" height="200" width="220"/>
+        </div>
+      </div>
+
+      <!-- Page Navigation -->
+      <div class="page-controls">
+        <button onclick="prevPage()">⏮</button>
+        <span id="pageIndicator">1 / 9</span>
+        <button onclick="nextPage()">⏭</button>
+      </div>
+    </section>
+
+    <section>
+      <h2 style="color: var(--pink); text-align: center">📷 Memories</h2>
+      <div class="gallery">
+        <img src="us2.jpeg" alt="Memory 1" />
+        <img src="us3.jpeg" alt="Memory 2" />
+        <img src="us4.jpeg" alt="Memory 3" />
+        <img src="us5.jpeg" alt="Memory 4" />
+        <img src="us6.jpeg" alt="Memory 5" />
+        <img src="us7.jpg" alt="Memory 6" />
+      </div>
+    </section>
+
+    <section id="videoSection" style="text-align: center">
+      <h2 style="color: var(--pink); text-align: center">
+        🎥 A Special Message
+      </h2>
+      <video
+        id="specialVideo"
+        width="80%"
+        controls
+        style="
+          border-radius: 12px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          margin-top: 20px;
+        "
+      >
+        <source
+          src="us8.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <div id="answerButtonContainer" style="margin-top: 20px">
+        <button
+          onclick="openQuestionModal()"
+          style="
+            background-color: var(--pink);
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+          "
+        >
+          Click to Give a Test 💬
+        </button>
+      </div>
+    </section>
+    <section
+      id="gameSelector"
+      style="padding: 60px 20px; background: #fffafc; text-align: center"
+    >
+      <h2 style="color: var(--pink); margin-bottom: 30px">
+        🎮 Let's Play a Game!
+      </h2>
+      <div
+        style="
+          display: grid;
+          gap: 20px;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          max-width: 1000px;
+          margin: auto;
+        "
+      >
+        <button onclick="startGame('catchHearts')" class="game-button">
+          🎯 Catch the Hearts<br /><span
+            >Catch falling hearts in a basket!</span
+          >
+        </button>
+
+        <button onclick="startGame('truthDare')" class="game-button">
+          💬 Truth or Dare<br /><span>Get romantic/fun prompts!</span>
+        </button>
+        <button onclick="startGame('puzzleSlider')" class="game-button">
+          🧩 Puzzle Slider<br /><span>Rebuild a jigsaw love photo</span>
+        </button>
+
+        <button onclick="startGame('memoryGame')" class="game-button">
+          🧠 Memory Game<br /><span>Find all matching pairs</span>
+        </button>
+
+        <button onclick="startGame('typeRacer')" class="game-button">
+          ⌨️ Type Racer<br /><span>Type a apni sachai fast!</span>
+        </button>
+        <button onclick="startGame('popBalloon')" class="game-button">
+          🖊️ Pop Me<br /><span>Tap fast to pop me!</span>
+        </button>
+      </div>
+    </section>
+    <div
+      id="catchHeartsModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="modal-content">
+        <button
+          onclick="closeCatchHeartsModal()"
+          style="
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f87171;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 10px;
+            cursor: pointer;
+          "
+        >
+          X
+        </button>
+
+        <h2 style="color: var(--pink); text-align: center">
+          🎯 Catch the Hearts
+        </h2>
+        <p style="text-align: center">
+          Move with ← and → keys. jitna ziada pyar krty hongy utny ziada hearts
+          catch kr paen gy🌚!
+        </p>
+        <div
+          id="gameContainer"
+          style="
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #fffafc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <img
+            src="basket.png"
+            id="player"
+            style="
+              position: absolute;
+              bottom: 10px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 80px;
+              height: 40px;
+              border-radius: 12px;
+            "
+          />
+        </div>
+        <p style="text-align: center; margin-top: 10px">
+          Score: <span id="score">0</span> | Time Left:
+          <span id="timeLeft">30</span>s
+        </p>
+      </div>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div
+      id="gameOverModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        z-index: 10000;
+      "
+    >
+      <h3>Time's Up! 🚀</h3>
+      <p>Your final score: <span id="finalScore"></span></p>
+      <button onclick="restartCatchHearts()" style="margin-top: 10px">
+        Play Again
+      </button>
+      <br />
+      <button
+        onclick="closeCatchHearts()"
+        style="
+          margin-top: 10px;
+          background: #f87171;
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        "
+      >
+        Close
+      </button>
+    </div>
+
+    <footer>Made with ❤️ by Hani</footer>
+    <!-- 🎬 Video Modal -->
+    <div
+      id="videoModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div style="position: relative; width: 90%; max-width: 800px">
+        <iframe
+          id="videoIframe"
+          width="100%"
+          height="450"
+          src=""
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+        <button
+          onclick="closeVideo()"
+          style="
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #fff;
+            color: red;
+            border: none;
+            font-size: 24px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+          "
+        >
+          ×
+        </button>
+      </div>
+    </div>
+    <!-- 🧠 Question Modal -->
+    <div
+      id="questionModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 30px;
+        border: 2px solid var(--pink);
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+        text-align: center;
+        z-index: 9999;
+        transition: all 0.3s ease;
+      "
+    >
+      <button
+        id="closeQuestionBtn"
+        onclick="closeQuestionModal()"
+        style="display: none"
+        class="close-btn"
+      >
+        X
+      </button>
+
+      <img src="bd1.gif" alt="" id="questionImg" />
+      <p id="questionText" style="font-size: 20px; color: var(--gray)">
+        Do you love me? 💖
+      </p>
+      <div style="margin-top: 20px">
+        <button
+          id="yesBtn"
+          onclick="handleYesClick()"
+          style="
+            background: var(--pink);
+            color: white;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+          "
+        >
+          Yes
+        </button>
+
+        <button
+          id="noBtn"
+          onclick="handleNoClick()"
+          style="
+            background: #f87171;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+          "
+        >
+          No
+        </button>
+      </div>
+    </div>
+    <!-- Overlay -->
+    <div id="truthDareModal" class="modal-overlay" style="display: none">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeTruthDareModal()">❌</span>
+        <h2 style="color: var(--pink)">💬 Truth or Dare</h2>
+
+        <p id="truthDarePrompt" class="prompt-text">Loading...</p>
+
+        <div id="truthDareOptions" class="btn-group">
+          <button class="btn btn-primary" onclick="chooseTruth()">Truth</button>
+          <button class="btn btn-warning" onclick="chooseDare()">Dare</button>
+        </div>
+
+        <div
+          id="truthDareActionButtons"
+          style="display: none"
+          class="btn-group"
+        >
+          <button class="btn btn-success" onclick="completeTruthDare()">
+            I did it!
+          </button>
+        </div>
+
+        <div id="truthDareTimer" class="timer-text"></div>
+      </div>
+    </div>
+
+    <!-- Puzzle Modal -->
+    <!-- Puzzle Modal -->
+    <div id="puzzleModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closePuzzleModal()">&times;</span>
+        <h2>🧩 Puzzle Slider</h2>
+        <p>Complete kr k jldi s.s send kren ☠️</p>
+        <div id="puzzleGrid" class="puzzle" style="margin: 15px 0"></div>
+        <div style="margin-top: 10px">
+          <button onclick="resetPuzzle()">🔄 Shuffle</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- memory modal -->
+    <!-- Memory Game Modal -->
+    <div
+      id="memoryGameModal"
+      class="memory-modal-overlay"
+      style="display: none"
+    >
+      <div class="memory-modal-box">
+        <span class="memory-modal-close" onclick="closeMemoryGame()">❌</span>
+
+        <div id="memoryGrid" class="memory-grid"></div>
+
+        <div
+          id="memoryCompleteMessage"
+          class="memory-complete"
+          style="display: none"
+        >
+          🎉 You matched all pairs!
+        </div>
+      </div>
+    </div>
+
+    <!-- Type Racer Modal -->
+    <div id="typeRacerModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeTypeRacerModal()">&times;</span>
+        <h2>💘 Type the Sachai Fast!</h2>
+        <p id="quoteDisplay"></p>
+        <textarea
+          id="quoteInput"
+          rows="4"
+          placeholder="Start typing..."
+        ></textarea>
+        <p id="timer">⏱ Time: 0s</p>
+        <p id="resultMessage" style="font-weight: bold"></p>
+      </div>
+    </div>
+    <div id="balloonGameModal" class="game-modal-overlay" style="display: none">
+      <div class="game-modal-box">
+        <span class="modal-close" onclick="closeBalloonGame()">❌</span>
+
+        <h3 style="color: var(--pink)">🎈 Pop Me!</h3>
+        <p>Tap me before I float away!</p>
+
+        <div id="balloonGameArea" class="balloon-game-area"></div>
+
+        <div class="score-time">
+          <p>🎯 Score: <span id="balloonScore">0</span></p>
+          <p>⏱️ Time Left: <span id="balloonTime">30</span>s</p>
+        </div>
+
+        <button onclick="closeBalloonGame()" class="btn btn-danger mt-10">
+          Close
+        </button>
+      </div>
+    </div>
+    <!-- 🎁 Floating Gift Box -->
+    <div id="giftBox" onclick="openGiftModal()">🎁</div>
+
+    <!-- ❤️ Surprise Modal -->
+    <div id="giftModal" class="gift-modal">
+      <div class="gift-content">
+        <span class="close-btn" onclick="closeGiftModal()">×</span>
+        <p id="typewriterText" class="typewriter-text"></p>
+        <p id="yourName" class="fade-name">Your Love</p>
+      </div>
+    </div>
+    <!-- 🧠 Quiz Button -->
+    <div id="quizButton" onclick="openQuizModal()">🧠</div>
+
+    <!-- 🧠 Quiz Modal -->
+    <div id="quizModal" class="quiz-modal">
+      <div class="quiz-content">
+        <span class="close-btn" onclick="closeQuizModal()">×</span>
+        <h3 style="color: #be185d">🧠 How Well Do You Know Me?</h3>
+        <p id="quizQuestion" class="quiz-question"></p>
+        <div id="quizOptions" class="quiz-options"></div>
+        <div id="quizResult" class="quiz-result"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  </body>
+</html>
