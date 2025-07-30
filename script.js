@@ -536,21 +536,42 @@ function shuffleArray(array) {
   }
 }
 
-const memoryEmojis = ["💖", "🌹", "💍", "😍", "🎁", "💕", "🧸", "😘"];
+const memoryImages = [
+  "us9.jpg",
+  "us10.jpg",
+  "us11.jpg",
+  "us12.jpg",
+  "us13.jpg",
+  "us14.jpg",
+  "us15.jpg",
+  "us16.jpg"
+];
 let flippedCards = [];
 let matchedPairs = 0;
-
 function buildMemoryGrid() {
   const grid = document.getElementById("memoryGrid");
   grid.innerHTML = ""; // clear previous grid
-  const cards = [...memoryEmojis, ...memoryEmojis].sort(
-    () => 0.5 - Math.random()
-  );
+  const cards = [...memoryImages, ...memoryImages].sort(() => 0.5 - Math.random());
 
-  cards.forEach((emoji) => {
+  cards.forEach((imgSrc) => {
     const card = document.createElement("div");
     card.className = "memory-card";
-    card.dataset.emoji = emoji;
+    card.dataset.image = imgSrc;
+
+    const front = document.createElement("div");
+    front.className = "card-front";
+
+    const back = document.createElement("div");
+    back.className = "card-back";
+    const img = document.createElement("img");
+    img.src = imgSrc;
+    img.alt = "memory";
+    img.classList.add("card-image");
+
+    back.appendChild(img);
+    card.appendChild(front);
+    card.appendChild(back);
+
     card.addEventListener("click", () => flipCard(card));
     grid.appendChild(card);
   });
@@ -559,34 +580,31 @@ function buildMemoryGrid() {
 function flipCard(card) {
   if (card.classList.contains("flipped") || flippedCards.length >= 2) return;
 
-  card.textContent = card.dataset.emoji;
   card.classList.add("flipped");
   flippedCards.push(card);
 
   if (flippedCards.length === 2) {
     const [first, second] = flippedCards;
-    if (first.dataset.emoji === second.dataset.emoji) {
+    if (first.dataset.image === second.dataset.image) {
       matchedPairs++;
       flippedCards = [];
 
-      if (matchedPairs === memoryEmojis.length) {
+      if (matchedPairs === memoryImages.length) {
         setTimeout(() => {
-          document.getElementById("memoryCompleteMessage").style.display =
-            "block";
+          document.getElementById("memoryCompleteMessage").style.display = "block";
           showConfetti();
         }, 500);
       }
     } else {
       setTimeout(() => {
-        first.textContent = "";
         first.classList.remove("flipped");
-        second.textContent = "";
         second.classList.remove("flipped");
         flippedCards = [];
       }, 800);
     }
   }
 }
+
 
 function closeMemoryGame() {
   document.getElementById("memoryGameModal").style.display = "none";
