@@ -248,7 +248,7 @@ function spawnHeart() {
   heart.style.width = "30px";
   heart.style.height = "30px";
   heart.style.background =
-    "url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/cover";
+    "url('heart.png') no-repeat center/cover";
   gameContainer.appendChild(heart);
 
   let heartTop = 0;
