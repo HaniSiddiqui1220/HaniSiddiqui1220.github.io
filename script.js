@@ -247,8 +247,7 @@ function spawnHeart() {
   heart.style.position = "absolute";
   heart.style.width = "30px";
   heart.style.height = "30px";
-  heart.style.background =
-    "url('heart.png') no-repeat center/cover";
+  heart.style.background = "url('heart.png') no-repeat center/cover";
   gameContainer.appendChild(heart);
 
   let heartTop = 0;
@@ -287,6 +286,39 @@ function closeCatchHearts() {
   clearInterval(timerInterval);
   resetCatchHeartsGame();
 }
+// TOUCH SUPPORT FOR MOBILE
+let isTouching = false;
+let initialTouchX = 0;
+
+player.addEventListener(
+  "touchstart",
+  function (e) {
+    if (!gameModal || gameModal.style.display !== "flex") return;
+    isTouching = true;
+    initialTouchX = e.touches[0].clientX;
+  },
+  { passive: true }
+);
+
+player.addEventListener(
+  "touchmove",
+  function (e) {
+    if (!isTouching) return;
+    const currentX = e.touches[0].clientX;
+    const deltaX = currentX - initialTouchX;
+    initialTouchX = currentX;
+
+    playerX += deltaX;
+    playerX = Math.max(0, Math.min(playerX, gameContainer.offsetWidth - 80));
+    player.style.left = `${playerX}px`;
+  },
+  { passive: true }
+);
+
+player.addEventListener("touchend", function () {
+  isTouching = false;
+});
+
 const truthPrompts = [
   "What's the most romantic thing you've ever done?",
   "When did you know you loved me?",
@@ -849,7 +881,7 @@ const doodles = [
   "bd31.gif",
   "bd32.gif",
   "bd28.gif",
-  "bd33.gif"
+  "bd33.gif",
 ];
 
 for (let i = 0; i < 30; i++) {
